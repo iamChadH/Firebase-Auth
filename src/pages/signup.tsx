@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const SignUp = () => {
   const { user, signup } = useAuth();
-  console.log(user)
+  console.log(user);
 
   const [data, setData] = useState({
     email: "",
@@ -35,8 +35,8 @@ const SignUp = () => {
           required
           placeholder="Enter email"
         />
-      </form>
-      <form className="mb-3" id="formBasicPassword">
+        {/* </form>
+      <form className="mb-3" id="formBasicPassword"> */}
         <label htmlFor="inputPassword" className="form-label">
           Password
         </label>
@@ -49,10 +49,10 @@ const SignUp = () => {
           type="password"
           placeholder="Password"
         />
+        <button type="submit" className="btn btn-primary">
+          SignUp
+        </button>
       </form>
-      <button type="submit" className="btn btn-primary">
-        SignUp
-      </button>
     </div>
   );
 };

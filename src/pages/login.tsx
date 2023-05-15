@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(data.email, data.password);
-      router.push('./dashboard')
+      router.push("./dashboard");
     } catch (error) {
       console.log(error);
     }
@@ -38,8 +38,8 @@ const Login = () => {
           required
           placeholder="Enter email"
         />
-      </form>
-      <form className="mb-3" id="formBasicPassword">
+        {/* </form>
+      <form className="mb-3" id="formBasicPassword"> */}
         <label htmlFor="inputPassword" className="form-label">
           Password
         </label>
@@ -52,10 +52,11 @@ const Login = () => {
           type="password"
           placeholder="Password"
         />
+
+        <button type="submit" className="btn btn-primary">
+          Login
+        </button>
       </form>
-      <button type="submit" className="btn btn-primary">
-        Login
-      </button>
     </div>
   );
 };

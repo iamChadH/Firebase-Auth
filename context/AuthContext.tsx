@@ -5,13 +5,12 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { auth } from "firebase/clientApp";
+import { auth } from "config/firebase";
+// import { auth } from "firebase/firebase";
 
 const AuthContext = createContext<any>({});
 
-export const useAuth = () => {
-  useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);
 
 export const AuthContextProvider = ({
   children,
@@ -23,6 +22,7 @@ export const AuthContextProvider = ({
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log(user);
       if (user) {
         setUser({
           uid: user.uid,
