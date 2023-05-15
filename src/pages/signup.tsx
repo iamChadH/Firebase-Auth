@@ -35,8 +35,6 @@ const SignUp = () => {
           required
           placeholder="Enter email"
         />
-        {/* </form>
-      <form className="mb-3" id="formBasicPassword"> */}
         <label htmlFor="inputPassword" className="form-label">
           Password
         </label>
