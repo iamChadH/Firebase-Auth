@@ -1,14 +1,26 @@
+import { useAuth } from "context/AuthContext";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const { user, login } = useAuth();
+  const router = useRouter();
+
+  console.log(user);
   const [data, setData] = useState({
     email: "",
     password: "",
   });
 
-  const handleLogin = (e: any) => {
+  const handleLogin = async (e: any) => {
     e.preventDefault();
-    console.log(data);
+    try {
+      await login(data.email, data.password);
+      router.push('./dashboard')
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(user);
   };
 
   return (

@@ -1,13 +1,22 @@
+import { useAuth } from "context/AuthContext";
 import React, { useState } from "react";
 
 const SignUp = () => {
+  const { user, signup } = useAuth();
+  console.log(user)
+
   const [data, setData] = useState({
     email: "",
     password: "",
   });
 
-  const handleSignUp = (e: any) => {
+  const handleSignUp = async (e: any) => {
     e.preventDefault();
+    try {
+      await signup(data.email, data.password);
+    } catch (error) {
+      console.log(error);
+    }
     console.log(data);
   };
 
