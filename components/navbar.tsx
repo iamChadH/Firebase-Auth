@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 type Props = {};
 
 const Navbar = (props: Props) => {
-  const { user, signup, login, logout } = useAuth();
+  const { user, logout } = useAuth();
   const router = useRouter();
   return (
     <>
